@@ -35,10 +35,11 @@ import re
 import secrets
 import time
 from collections import deque
+from collections.abc import AsyncIterator, Awaitable, Callable
 from contextlib import asynccontextmanager
 from dataclasses import dataclass, field
-from datetime import datetime, timezone
-from typing import TYPE_CHECKING, Any, AsyncIterator, Awaitable, Callable
+from datetime import UTC, datetime
+from typing import TYPE_CHECKING, Any
 
 from brand_bridge.core.errors import (
     ConfirmationTokenError,
@@ -213,8 +214,8 @@ DEFAULT_AUDIT_LOG = AuditLog()
 # ─── @audited_tool decorator ─────────────────────────────────────────────
 
 @asynccontextmanager
-async def audited(ctx: "ToolContext", *, name: str,
-                  rate_class: str = "L1") -> AsyncIterator["ToolContext"]:
+async def audited(ctx: ToolContext, *, name: str,
+                  rate_class: str = "L1") -> AsyncIterator[ToolContext]:
     """Context-manager variant of `@audited_tool` for callers that build the
     ToolContext inline (e.g. MCP tool handlers exposed via FastMCP, where the
     user-facing signature can't carry `ctx` as the first arg).
@@ -245,7 +246,7 @@ async def audited(ctx: "ToolContext", *, name: str,
             tool=name, tenant_id=ctx.tenant_id, user_id=ctx.user_id,
             success=success,
             duration_ms=int((time.time() - started) * 1000),
-            timestamp=datetime.now(timezone.utc).isoformat(),
+            timestamp=datetime.now(UTC).isoformat(),
             error=error,
         ))
 
@@ -283,7 +284,7 @@ def audited_tool(*, name: str, rate_class: str = "L1"):
                     tool=name, tenant_id=ctx.tenant_id, user_id=ctx.user_id,
                     success=success,
                     duration_ms=int((time.time() - started) * 1000),
-                    timestamp=datetime.now(timezone.utc).isoformat(),
+                    timestamp=datetime.now(UTC).isoformat(),
                     error=error,
                 ))
         return wrapper

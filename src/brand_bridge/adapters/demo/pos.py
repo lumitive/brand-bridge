@@ -8,7 +8,7 @@ inventing its own scheme. Real adapters can copy this structure verbatim.
 from __future__ import annotations
 
 import secrets
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 
 from brand_bridge.core.audit import (
     DEFAULT_IDEMPOTENCY_STORE,
@@ -100,7 +100,7 @@ class DemoPOS(POSProvider):
             stars_will_earn=int(quote["final_price"] // 10),
             pay_url=f"https://pay.demo/{order_id}",
             message="Please complete payment within 15 minutes.",
-            created_at=datetime.now(timezone.utc),
+            created_at=datetime.now(UTC),
         )
         self._orders[order_id] = order
         DEFAULT_IDEMPOTENCY_STORE.store(idem_scope, idempotency_key, body_hash, order)

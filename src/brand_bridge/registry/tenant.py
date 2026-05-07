@@ -116,7 +116,7 @@ class TenantRegistry:
     im_channels: dict[str, IMChannelProvider] = field(default_factory=dict)
 
     @classmethod
-    def from_config(cls, config: TenantConfig) -> "TenantRegistry":
+    def from_config(cls, config: TenantConfig) -> TenantRegistry:
         providers = config.raw.get("providers") or {}
 
         md_cls = _resolve_provider(

@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 
 from brand_bridge.core.types import (
     Address,
@@ -93,7 +93,7 @@ DEMO_ADDRESSES: dict[str, list[Address]] = {
 def demo_inventory(store_id: str) -> InventorySnapshot:
     return InventorySnapshot(
         store_id=store_id,
-        as_of=datetime.now(timezone.utc),
+        as_of=datetime.now(UTC),
         items=[
             InventoryItem(sku="ING-OAT-MILK", name="Oat milk",
                           on_hand=18, days_left=1.5, suggested_order=24),

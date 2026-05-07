@@ -2,14 +2,10 @@
 
 from __future__ import annotations
 
-import asyncio
-
 import pytest
 
 from brand_bridge.core.audit import (
     DEFAULT_AUDIT_LOG,
-    DEFAULT_IDEMPOTENCY_STORE,
-    DEFAULT_RATE_LIMITER,
     IdempotencyStore,
     RateLimiter,
     audited_tool,

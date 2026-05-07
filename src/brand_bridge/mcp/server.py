@@ -24,8 +24,7 @@ than JSON; for now JSON is the default since AI hosts handle either.
 
 from __future__ import annotations
 
-from datetime import datetime, timezone
-from typing import Any
+from datetime import UTC, datetime
 
 from mcp.server.fastmcp import FastMCP
 
@@ -60,7 +59,7 @@ def create_server(tenant_id: str) -> FastMCP:
     async def now_time_info() -> dict[str, str]:
         """Current UTC time and weekday — call this before reasoning about
         promotion validity windows or store hours."""
-        now = datetime.now(timezone.utc)
+        now = datetime.now(UTC)
         return {"iso": now.isoformat(), "weekday": now.strftime("%A")}
 
     @mcp.tool()

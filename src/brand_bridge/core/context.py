@@ -19,5 +19,5 @@ if TYPE_CHECKING:
 class ToolContext:
     tenant_id: str
     user_id: str
-    config: "TenantConfig"
-    registry: "TenantRegistry"
+    config: TenantConfig
+    registry: TenantRegistry
