@@ -1,11 +1,21 @@
-"""Demo POSProvider — in-memory orders, deterministic confirmation tokens."""
+"""Demo POSProvider — uses platform-side audit primitives.
+
+This adapter is the canonical reference for how a real adapter should
+delegate confirmation tokens and idempotency to the platform rather than
+inventing its own scheme. Real adapters can copy this structure verbatim.
+"""
 
 from __future__ import annotations
 
 import secrets
 from datetime import datetime, timezone
 
-from brand_bridge.core.errors import ConfirmationTokenError
+from brand_bridge.core.audit import (
+    DEFAULT_IDEMPOTENCY_STORE,
+    consume_confirmation_token,
+    generate_confirmation_token,
+    register_confirmation_token,
+)
 from brand_bridge.core.providers import POSProvider
 from brand_bridge.core.types import (
     CancelResult,
@@ -22,15 +32,15 @@ from ._data import PRODUCTS, demo_inventory
 class DemoPOS(POSProvider):
     def __init__(self, config) -> None:
         self.config = config
-        self._tokens: dict[str, dict] = {}      # confirmation_token -> quote payload
-        self._orders: dict[str, Order] = {}     # order_id -> Order
-        self._idem: dict[str, str] = {}         # idempotency_key -> order_id
+        self._orders: dict[str, Order] = {}
 
     def _price_lines(self, items: list[OrderItem]) -> tuple[list[PriceLine], float]:
         lines: list[PriceLine] = []
         total = 0.0
         for item in items:
-            product = next((p for p in PRODUCTS if p.product_code == item.product_code), None)
+            product = next(
+                (p for p in PRODUCTS if p.product_code == item.product_code), None,
+            )
             if product is None:
                 continue
             unit = product.base_price
@@ -49,29 +59,35 @@ class DemoPOS(POSProvider):
         delivery = 5.0 if pickup_type == "delivery" else 0.0
         final = max(0.0, original - discount + delivery)
 
-        token = f"cfm_{secrets.token_hex(8)}"
-        quote = PriceQuote(
+        token = generate_confirmation_token()
+        register_confirmation_token(token, {
+            "store_id": store_id,
+            "items": [i.model_dump() for i in items],
+            "final_price": final,
+            "discount": discount,
+        })
+        return PriceQuote(
             items=lines, original_price=original, discount=discount,
             coupon_name=coupon_code, delivery_fee=delivery,
             packing_fee=0.0, final_price=final, confirmation_token=token,
         )
-        self._tokens[token] = {
-            "store_id": store_id, "items": [i.model_dump() for i in items],
-            "final_price": final, "discount": discount,
-        }
-        return quote
 
     async def place_order(self, *, tenant_id, user_id, store_id, items,
                           pickup_type, idempotency_key, confirmation_token,
                           coupon_code=None, address_id=None) -> Order:
-        if confirmation_token not in self._tokens:
-            raise ConfirmationTokenError(
-                "confirmation_token is invalid or already consumed")
+        idem_scope = f"{tenant_id}:place_order"
+        body_hash = DEFAULT_IDEMPOTENCY_STORE.hash_body({
+            "store_id": store_id,
+            "items": [i.model_dump() for i in items],
+            "pickup_type": pickup_type,
+            "coupon_code": coupon_code,
+            "address_id": address_id,
+        })
+        cached = DEFAULT_IDEMPOTENCY_STORE.lookup(idem_scope, idempotency_key, body_hash)
+        if cached is not None:
+            return cached
 
-        if idempotency_key in self._idem:
-            return self._orders[self._idem[idempotency_key]]
-
-        quote = self._tokens.pop(confirmation_token)
+        quote = consume_confirmation_token(confirmation_token)
         lines, _ = self._price_lines(items)
 
         order_id = f"ord_{secrets.token_hex(6)}"
@@ -87,7 +103,7 @@ class DemoPOS(POSProvider):
             created_at=datetime.now(timezone.utc),
         )
         self._orders[order_id] = order
-        self._idem[idempotency_key] = order_id
+        DEFAULT_IDEMPOTENCY_STORE.store(idem_scope, idempotency_key, body_hash, order)
         return order
 
     async def get_order(self, order_id, user_id) -> Order | None:

@@ -78,14 +78,25 @@ It reads the docs, infers field mappings, generates `adapter.py` + `tenant.yaml`
 
 `brand-bridge` is in active development. v1.0 milestones:
 
-- [x] M0 — Repo scaffold, 5 Provider ABCs, Pydantic types
-- [ ] M1 — Demo adapter, contract tests, tenant.yaml loader
-- [ ] M2 — MCP server (stdio + Streamable HTTP), audit + JWT scope
-- [ ] M3 — CLI + auto-onboard skills + 4 industry presets
+- [x] M0 — Repo scaffold, 5 Provider ABCs, Pydantic types, demo adapter, contract tests
+- [x] M1 — Audit primitives (confirmation tokens, idempotency, rate limit, PII), `@audited_tool`, `ToolContext`
+- [ ] M2 — MCP server (stdio + Streamable HTTP), JWT scope, persistent audit log
+- [ ] M3 — `tenant init/onboard/smoke` CLI + Claude Code skills + industry presets
 - [ ] M4 — Reference adapters (Square POS, Stripe, Twilio WhatsApp)
 - [ ] M5 — Public release, GitHub Pages, PyPI
 
-See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for the design and [docs/INTEGRATION_GUIDE.md](docs/INTEGRATION_GUIDE.md) for the brand-side walkthrough.
+See the docs:
+
+- [ARCHITECTURE](docs/ARCHITECTURE.md) — the why and the high-level design
+- [INTEGRATION_GUIDE](docs/INTEGRATION_GUIDE.md) — 5-day walkthrough for brand engineers
+- [PROVIDER_SPEC](docs/PROVIDER_SPEC.md) — every method, every return type
+- [SECURITY](docs/SECURITY.md) — threat model + L0–L3 risk classes
+- [ROADMAP](docs/ROADMAP.md) — week-by-week milestones
+- [CHANGELOG](CHANGELOG.md) — what shipped when
+- [COOKBOOK/square](docs/COOKBOOK/square.md) — worked Square POS example
+- [examples/lumi_agent_integration](examples/lumi_agent_integration.md) — migrating lumi-agent onto brand-bridge
+
+Contributions welcome — see [CONTRIBUTING](CONTRIBUTING.md).
 
 ## License
 

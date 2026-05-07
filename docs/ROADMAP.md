@@ -15,13 +15,17 @@ Six weeks to v1.0. One milestone per week unless a milestone is flagged risky.
 
 **Exit criterion:** `brand-bridge tenant validate _demo` returns OK; `pytest` passes.
 
-## M1 — Audit + idempotency (week 2)
+## M1 — Audit + idempotency (week 2) ✓
 
-- `core/audit.py`: scope check + rate limit + audit log decorator
-- Confirmation token primitive (`generate_confirmation_token` + verify)
-- In-memory idempotency store (with optional Redis backend stub)
-- PII masking helpers (phone, email)
-- Add to all Demo adapter methods that need them
+- ✓ `core/audit.py`: rate limit + audit log decorator (`@audited_tool`)
+- ✓ Confirmation token primitive (`generate_confirmation_token` + register + consume, 5-min TTL)
+- ✓ In-memory `IdempotencyStore` with body-hash safety check
+- ✓ PII masking helpers (`mask_phone`, `mask_email`, idempotent)
+- ✓ `core/context.py` — `ToolContext` carries (tenant, user, config, registry)
+- ✓ DemoPOS refactored to use platform primitives (canonical reference for real adapters)
+- ✓ 13 audit tests + integration with existing 7 contract tests; 20 total pass
+
+**Exit criterion:** `place_order` cannot be invoked without a fresh confirmation token; duplicate idempotency keys with same body return cached order; rate limiter throttles correctly.
 
 ## M2 — MCP server (week 3)
 

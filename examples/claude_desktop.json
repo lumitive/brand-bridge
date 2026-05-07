@@ -1,0 +1,31 @@
+{
+  "_comment": "Drop the relevant block into ~/Library/Application Support/Claude/claude_desktop_config.json (macOS) or %APPDATA%/Claude/claude_desktop_config.json (Windows). Restart Claude Desktop. The brand-bridge command must be on PATH (e.g. `pip install brand-bridge` or `pipx install`).",
+
+  "mcpServers": {
+    "brand-bridge-demo": {
+      "command": "brand-bridge",
+      "args": ["serve", "--tenant", "_demo"],
+      "_note": "The shipped demo tenant — no setup, in-memory data."
+    },
+
+    "my-square-brand": {
+      "command": "brand-bridge",
+      "args": ["serve", "--tenant", "my_square_brand"],
+      "env": {
+        "SQUARE_ACCESS_TOKEN": "EAAA...replace-me",
+        "SQUARE_LOCATION_ID": "L4Y...replace-me"
+      },
+      "_note": "Real Square sandbox. See docs/COOKBOOK/square.md for setup."
+    },
+
+    "my-brand-via-uv": {
+      "command": "uv",
+      "args": [
+        "run",
+        "--directory", "/absolute/path/to/brand-bridge",
+        "brand-bridge", "serve", "--tenant", "my_brand"
+      ],
+      "_note": "Run from a checkout without installing — useful for development."
+    }
+  }
+}
