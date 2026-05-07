@@ -2,7 +2,12 @@
 
 > One-pager covering all three Lumi repositories: how they fit together, what each is for, and the investor / merchant story they tell.
 
-The diagram source is [`lumi-platform-architecture.drawio`](./lumi-platform-architecture.drawio). Open it in [diagrams.net](https://app.diagrams.net) (free, browser-based) or VS Code with the Draw.io Integration extension. Export PNG/SVG for slide decks.
+The diagram source is [`lumi-platform-architecture.drawio`](./lumi-platform-architecture.drawio) — a **two-page** file. Open in [diagrams.net](https://app.diagrams.net) or VS Code Draw.io Integration. Export PNG/SVG for slide decks.
+
+| Page | Audience | What it shows |
+|---|---|---|
+| **1 · Lumi Platform — MVP** | investors, executives | High-level: 4-tier flow (AI hosts → discovery → platform → brand back-office) with the OSS-moat / SaaS-revenue split |
+| **2 · Capability Detail** | engineers, technical merchants | lumi-agent broken into L1–L4 layered capabilities + AgentOps sidebar; brand-bridge as dual-pillar downstream (品牌初始化 + 系统集成); ERP added explicitly |
 
 ---
 
@@ -43,6 +48,60 @@ The diagram source is [`lumi-platform-architecture.drawio`](./lumi-platform-arch
 │  (Square · Toast · 美团 · Salesforce · Stripe · Alipay · WhatsApp)   │
 └──────────────────────────────────────────────────────────────────────┘
 ```
+
+---
+
+## Capability detail (page 2)
+
+Page 2 zooms into the platform tier and breaks each project into the modules investors and engineers care about.
+
+### lumi-agent · 上半身 (L1–L4 + AgentOps)
+
+```
+L1 · 前端交互     A2UI/H5  ·  WhatsApp/WeChat  ·  Voice (ASR/TTS)  ·  MCP host  ·  UI Action / 服务卡
+L2 · 会话         Conversation Center  ·  ConversationContext (Patch+Checkpoint)  ·  Auth/RBAC  ·  Memory
+L3 · 编排         LangGraph + TaskDef  ·  A2A Orchestrator (DAG)  ·  Skill Framework  ·  Multi-Agent  ·  Sandbox
+L4 · 智能         Intent (LLM)  ·  Slot Filling  ·  RAG (Milvus/ChromaDB)  ·  Recommend  ·  Domain Brain
+
+AgentOps         Eval (LLM-as-Judge · Bad Case · suite gate)  ·  Playground (replay-seed · SSE chat)
+                 Audit Ledger  ·  RC / Mock Policy / Namespace  ·  Skill Marketplace
+```
+
+This is where the AI work happens — and the layer that justifies SaaS pricing. Customers buy lumi-agent because building L1–L4 from scratch takes a full team a year.
+
+### brand-bridge · 下半身 (dual pillar)
+
+**① 品牌初始化 (Brand Onboarding)** — how a brand goes from zero to AI-accessible:
+
+| Capability | What it does |
+|---|---|
+| `tenant.yaml` + 4 行业预设 | Declarative config; coffee/tea/restaurant/retail templates |
+| `/brand-init` skill | Interactive Q&A → 30-second yaml generation, demo data live immediately |
+| `/brand-onboard` skill | OpenAPI / Postman / docs URL → `adapter.py` + `tenant.yaml` + integration tests |
+| DemoAdapter fallback | Zero-config startup; replace one provider at a time without breaking others |
+| Contract tests | Every adapter (demo and real) passes the same suite |
+| **5-day brand integration** | Day 1 yaml · Day 2 MasterData · Day 3 POS · Day 4-5 testing & ship |
+
+**② 系统集成 (System Integration)** — how brand-bridge connects to brand internal systems:
+
+| Capability | What it covers |
+|---|---|
+| 5 Provider ABCs | MasterData (商品/门店/类目) · POS (算价/下单/库存) · CRM (会员/券/积分) · Payment (预支付/回调/退款) · IM (消息收发) |
+| 平台原语 | Confirmation Token (single-use, 5min TTL) · Idempotency Store · Rate Limiter (L0–L3) · PII Mask · Audit Log |
+| MCP Server | stdio (Claude Desktop) + Streamable HTTP (production) · 22 tools · `@audited_tool` uniformly applies rate limit + audit |
+| TenantRegistry | `X-Tenant-Id` routing · per-tenant provider instances · one process per brand (stdio) or many (HTTP) |
+| **ERP Provider** *(v2 planned)* | 进销存 · 财务 · 供应链 · 凭证 — Oracle EBS / SAP / 用友 / 金蝶 |
+
+### Brand internal systems (the targets)
+
+The bottom tier of page 2 names the concrete vendors brand-bridge adapts to. Six categories, plus ERP added explicitly per real customer requests:
+
+- **POS** — Square · Toast · 美团 · 有赞
+- **ERP** — SAP · Oracle · 用友 · 金蝶
+- **Master Data** — PIM · catalog · 价格管理
+- **CRM / Loyalty** — Salesforce · 自研会员体系
+- **Payment** — Stripe · Alipay · WeChat Pay · 银联
+- **IM** — WhatsApp · 企业微信 · 钉钉
 
 ---
 

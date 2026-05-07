@@ -170,4 +170,307 @@
       </root>
     </mxGraphModel>
   </diagram>
+
+  <diagram name="Capability Detail" id="lumi-capability-detail">
+    <mxGraphModel dx="1800" dy="1500" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1800" pageHeight="1520" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <mxCell id="d2-title" value="lumi-agent + brand-bridge · 能力分层架构" style="text;html=1;align=center;fontSize=24;fontStyle=1;fontColor=#1a1a1a;" vertex="1" parent="1">
+          <mxGeometry x="400" y="20" width="1000" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="d2-sub" value="上半身: AI 编排（lumi-agent · SaaS）&amp;nbsp;&amp;nbsp;×&amp;nbsp;&amp;nbsp;下半身: 品牌接入(brand-bridge · OSS)&amp;nbsp;&amp;nbsp;×&amp;nbsp;&amp;nbsp;品牌内部系统集成" style="text;html=1;align=center;fontSize=13;fontColor=#737373;" vertex="1" parent="1">
+          <mxGeometry x="400" y="56" width="1000" height="22" as="geometry" />
+        </mxCell>
+
+        <mxCell id="d2-h-hosts" value="AI HOSTS · 多通道入口" style="text;html=1;align=left;fontSize=11;fontStyle=1;fontColor=#737373;letterSpacing=4;" vertex="1" parent="1">
+          <mxGeometry x="100" y="100" width="300" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="d2-ah-1" value="Claude Desktop" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#9e9e9e;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="100" y="130" width="320" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="d2-ah-2" value="ChatGPT / GPTs" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#9e9e9e;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="440" y="130" width="320" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="d2-ah-3" value="Hex Agents" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#9e9e9e;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="780" y="130" width="320" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="d2-ah-4" value="OpenClaw" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#9e9e9e;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1120" y="130" width="320" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="d2-ah-5" value="豆包 Agent / 自研" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#9e9e9e;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1460" y="130" width="320" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="d2-mcp-pill" value="MCP" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1976d2;strokeColor=#0d47a1;fontSize=11;fontColor=#ffffff;fontStyle=1;letterSpacing=2;" vertex="1" parent="1">
+          <mxGeometry x="900" y="195" width="50" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="d2-h-disc" value="DISCOVERY + GATEWAY" style="text;html=1;align=left;fontSize=11;fontStyle=1;fontColor=#737373;letterSpacing=4;" vertex="1" parent="1">
+          <mxGeometry x="100" y="230" width="300" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="d2-mcp" value="&lt;b style=&quot;color:#0d47a1&quot;&gt;lumi-mcp&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size:11px;color:#42a5f5&quot;&gt;tools.json · llms.txt · mcp.json · GitHub Pages&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e3f2fd;strokeColor=#1976d2;fontSize=13;align=center;verticalAlign=middle;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="100" y="258" width="370" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="d2-gw" value="&lt;b style=&quot;color:#e65100&quot;&gt;Conversation Gateway&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size:11px;color:#ef6c00&quot;&gt;Bearer JWT · capability guard · 限流 · 协议转换 · maestro-web 路由 · typed API&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff8e1;strokeColor=#f57f17;fontSize=13;align=center;verticalAlign=middle;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="490" y="258" width="1290" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="d2-h-la" value="lumi-agent · 上半身（AI 编排）" style="text;html=1;align=left;fontSize=11;fontStyle=1;fontColor=#737373;letterSpacing=4;" vertex="1" parent="1">
+          <mxGeometry x="100" y="345" width="400" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="d2-la-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f3e5f5;strokeColor=#6a1b9a;fontSize=14;verticalAlign=top;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="100" y="372" width="1680" height="500" as="geometry" />
+        </mxCell>
+        <mxCell id="d2-la-title" value="lumi-agent" style="text;html=1;align=left;fontSize=18;fontStyle=1;fontColor=#4a148c;" vertex="1" parent="1">
+          <mxGeometry x="120" y="385" width="200" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="d2-la-tag" value="SaaS · 收入" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#6a1b9a;strokeColor=#4a148c;fontSize=10;fontColor=#ffffff;fontStyle=1;letterSpacing=1;" vertex="1" parent="1">
+          <mxGeometry x="320" y="388" width="100" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="d2-la-meta" value="FastAPI + LangGraph + ChromaDB · 18 tools · single-tenant demo · 多 Agent 协作建设中" style="text;html=1;align=right;fontSize=11;fontColor=#7b1fa2;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="900" y="388" width="860" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="d2-l1-lbl" value="L1 · 前端交互" style="text;html=1;align=left;fontSize=11;fontStyle=1;fontColor=#bf360c;letterSpacing=2;" vertex="1" parent="1">
+          <mxGeometry x="120" y="428" width="200" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="d2-l1-1" value="&lt;b&gt;A2UI / H5&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size:10px;color:#5d4037&quot;&gt;私域核心入口 · 服务卡体系&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#fb8c00;fontSize=11;align=center;" vertex="1" parent="1">
+          <mxGeometry x="120" y="450" width="232" height="46" as="geometry" />
+        </mxCell>
+        <mxCell id="d2-l1-2" value="&lt;b&gt;WhatsApp / WeChat&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size:10px;color:#5d4037&quot;&gt;模板消息 · 卡片回传&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#fb8c00;fontSize=11;align=center;" vertex="1" parent="1">
+          <mxGeometry x="362" y="450" width="232" height="46" as="geometry" />
+        </mxCell>
+        <mxCell id="d2-l1-3" value="&lt;b&gt;Voice (ASR/TTS)&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size:10px;color:#5d4037&quot;&gt;语音识别 · 语音生成&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#fb8c00;fontSize=11;align=center;" vertex="1" parent="1">
+          <mxGeometry x="604" y="450" width="232" height="46" as="geometry" />
+        </mxCell>
+        <mxCell id="d2-l1-4" value="&lt;b&gt;MCP Host&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size:10px;color:#5d4037&quot;&gt;Claude · ChatGPT · Hex&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#fb8c00;fontSize=11;align=center;" vertex="1" parent="1">
+          <mxGeometry x="846" y="450" width="232" height="46" as="geometry" />
+        </mxCell>
+        <mxCell id="d2-l1-5" value="&lt;b&gt;UI Action / 服务卡&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size:10px;color:#5d4037&quot;&gt;按钮确认 · 表单补槽&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#fb8c00;fontSize=11;align=center;" vertex="1" parent="1">
+          <mxGeometry x="1088" y="450" width="232" height="46" as="geometry" />
+        </mxCell>
+
+        <mxCell id="d2-l2-lbl" value="L2 · 会话层" style="text;html=1;align=left;fontSize=11;fontStyle=1;fontColor=#880e4f;letterSpacing=2;" vertex="1" parent="1">
+          <mxGeometry x="120" y="510" width="200" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="d2-l2-1" value="&lt;b&gt;Conversation Center&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size:10px;color:#4a148c&quot;&gt;round / system view · 轨迹 · 打标&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#c2185b;fontSize=11;align=center;" vertex="1" parent="1">
+          <mxGeometry x="120" y="532" width="295" height="46" as="geometry" />
+        </mxCell>
+        <mxCell id="d2-l2-2" value="&lt;b&gt;ConversationContext&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size:10px;color:#4a148c&quot;&gt;Patch + Checkpoint · 唯一写通路&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#c2185b;fontSize=11;align=center;" vertex="1" parent="1">
+          <mxGeometry x="425" y="532" width="295" height="46" as="geometry" />
+        </mxCell>
+        <mxCell id="d2-l2-3" value="&lt;b&gt;Auth · RBAC&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size:10px;color:#4a148c&quot;&gt;Bearer · scope · capability guard&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#c2185b;fontSize=11;align=center;" vertex="1" parent="1">
+          <mxGeometry x="730" y="532" width="295" height="46" as="geometry" />
+        </mxCell>
+        <mxCell id="d2-l2-4" value="&lt;b&gt;Memory&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size:10px;color:#4a148c&quot;&gt;长期记忆 · 当前 hook 形态&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#c2185b;fontSize=11;align=center;" vertex="1" parent="1">
+          <mxGeometry x="1035" y="532" width="285" height="46" as="geometry" />
+        </mxCell>
+
+        <mxCell id="d2-l3-lbl" value="L3 · 编排层" style="text;html=1;align=left;fontSize=11;fontStyle=1;fontColor=#311b92;letterSpacing=2;" vertex="1" parent="1">
+          <mxGeometry x="120" y="592" width="200" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="d2-l3-1" value="&lt;b&gt;LangGraph + TaskDef&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size:10px;color:#1a237e&quot;&gt;DSL · fallback · checkpoint&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#5e35b1;fontSize=11;align=center;" vertex="1" parent="1">
+          <mxGeometry x="120" y="614" width="232" height="46" as="geometry" />
+        </mxCell>
+        <mxCell id="d2-l3-2" value="&lt;b&gt;A2A Orchestrator&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size:10px;color:#1a237e&quot;&gt;任务解析 · DAG · 并行&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#5e35b1;fontSize=11;align=center;" vertex="1" parent="1">
+          <mxGeometry x="362" y="614" width="232" height="46" as="geometry" />
+        </mxCell>
+        <mxCell id="d2-l3-3" value="&lt;b&gt;Skill Framework&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size:10px;color:#1a237e&quot;&gt;Skill Marketplace · 注册&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#5e35b1;fontSize=11;align=center;" vertex="1" parent="1">
+          <mxGeometry x="604" y="614" width="232" height="46" as="geometry" />
+        </mxCell>
+        <mxCell id="d2-l3-4" value="&lt;b&gt;Multi-Agent&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size:10px;color:#1a237e&quot;&gt;委派 · 共享上下文 · 汇总&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#5e35b1;fontSize=11;align=center;" vertex="1" parent="1">
+          <mxGeometry x="846" y="614" width="232" height="46" as="geometry" />
+        </mxCell>
+        <mxCell id="d2-l3-5" value="&lt;b&gt;Agent Sandbox&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size:10px;color:#1a237e&quot;&gt;eval/prod 隔离 · namespace&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#5e35b1;fontSize=11;align=center;" vertex="1" parent="1">
+          <mxGeometry x="1088" y="614" width="232" height="46" as="geometry" />
+        </mxCell>
+
+        <mxCell id="d2-l4-lbl" value="L4 · 智能层" style="text;html=1;align=left;fontSize=11;fontStyle=1;fontColor=#0d47a1;letterSpacing=2;" vertex="1" parent="1">
+          <mxGeometry x="120" y="674" width="200" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="d2-l4-1" value="&lt;b&gt;Intent 识别&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size:10px;color:#0d47a1&quot;&gt;zero/few-shot · function call&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#3949ab;fontSize=11;align=center;" vertex="1" parent="1">
+          <mxGeometry x="120" y="696" width="232" height="46" as="geometry" />
+        </mxCell>
+        <mxCell id="d2-l4-2" value="&lt;b&gt;Slot Filling&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size:10px;color:#0d47a1&quot;&gt;人数 · 预算 · 偏好分流&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#3949ab;fontSize=11;align=center;" vertex="1" parent="1">
+          <mxGeometry x="362" y="696" width="232" height="46" as="geometry" />
+        </mxCell>
+        <mxCell id="d2-l4-3" value="&lt;b&gt;RAG 检索&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size:10px;color:#0d47a1&quot;&gt;Milvus · ChromaDB · 上下文注入&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#3949ab;fontSize=11;align=center;" vertex="1" parent="1">
+          <mxGeometry x="604" y="696" width="232" height="46" as="geometry" />
+        </mxCell>
+        <mxCell id="d2-l4-4" value="&lt;b&gt;Recommend&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size:10px;color:#0d47a1&quot;&gt;偏好画像 · 历史协同&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#3949ab;fontSize=11;align=center;" vertex="1" parent="1">
+          <mxGeometry x="846" y="696" width="232" height="46" as="geometry" />
+        </mxCell>
+        <mxCell id="d2-l4-5" value="&lt;b&gt;Domain Brain&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size:10px;color:#0d47a1&quot;&gt;点单 / 茶歇 / 套餐 领域大脑&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#3949ab;fontSize=11;align=center;" vertex="1" parent="1">
+          <mxGeometry x="1088" y="696" width="232" height="46" as="geometry" />
+        </mxCell>
+
+        <mxCell id="d2-ao-lbl" value="AgentOps · 治理与评估闭环" style="text;html=1;align=left;fontSize=11;fontStyle=1;fontColor=#424242;letterSpacing=2;" vertex="1" parent="1">
+          <mxGeometry x="1340" y="428" width="300" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="d2-ao-1" value="&lt;b&gt;Eval&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size:10px;color:#616161&quot;&gt;LLM-as-Judge · Bad Case · suite gate · 基线对比&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fafafa;strokeColor=#757575;fontSize=11;align=center;" vertex="1" parent="1">
+          <mxGeometry x="1340" y="450" width="430" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="d2-ao-2" value="&lt;b&gt;Playground&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size:10px;color:#616161&quot;&gt;replay-seed · SSE chat · debug panel · 复现&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fafafa;strokeColor=#757575;fontSize=11;align=center;" vertex="1" parent="1">
+          <mxGeometry x="1340" y="510" width="430" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="d2-ao-3" value="&lt;b&gt;Audit Ledger&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size:10px;color:#616161&quot;&gt;生产会话分析 · prompt snapshot&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fafafa;strokeColor=#757575;fontSize=11;align=center;" vertex="1" parent="1">
+          <mxGeometry x="1340" y="570" width="430" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="d2-ao-4" value="&lt;b&gt;RC / Mock Policy&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size:10px;color:#616161&quot;&gt;namespace 隔离 · prompt override · 灰度&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fafafa;strokeColor=#757575;fontSize=11;align=center;" vertex="1" parent="1">
+          <mxGeometry x="1340" y="630" width="430" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="d2-ao-5" value="&lt;b&gt;Skill Marketplace&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size:10px;color:#616161&quot;&gt;场景包 · 任务包 · 模板包 · 规则包&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fafafa;strokeColor=#757575;fontSize=11;align=center;" vertex="1" parent="1">
+          <mxGeometry x="1340" y="690" width="430" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="d2-flow" value="lumi-agent → brand-bridge · 业务能力调用 (MCP)" style="text;html=1;align=center;fontSize=12;fontStyle=2;fontColor=#558b2f;" vertex="1" parent="1">
+          <mxGeometry x="700" y="888" width="500" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="d2-h-bb" value="brand-bridge · 下半身（品牌接入与系统集成）" style="text;html=1;align=left;fontSize=11;fontStyle=1;fontColor=#737373;letterSpacing=4;" vertex="1" parent="1">
+          <mxGeometry x="100" y="922" width="500" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="d2-bb-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8f5e9;strokeColor=#2e7d32;fontSize=14;verticalAlign=top;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="100" y="950" width="1680" height="350" as="geometry" />
+        </mxCell>
+        <mxCell id="d2-bb-title" value="brand-bridge" style="text;html=1;align=left;fontSize=18;fontStyle=1;fontColor=#1b5e20;" vertex="1" parent="1">
+          <mxGeometry x="120" y="965" width="220" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="d2-bb-tag" value="OSS · 护城河" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2e7d32;strokeColor=#1b5e20;fontSize=10;fontColor=#ffffff;fontStyle=1;letterSpacing=1;" vertex="1" parent="1">
+          <mxGeometry x="345" y="968" width="100" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="d2-bb-meta" value="github.com/lumitive/brand-bridge · Apache 2.0 · M2b 完成 · 27 tests green · 5-day brand integration" style="text;html=1;align=right;fontSize=11;fontColor=#33691e;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="900" y="968" width="860" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="d2-bi-lbl" value="① 品牌初始化 · Brand Onboarding" style="text;html=1;align=left;fontSize=12;fontStyle=1;fontColor=#1b5e20;letterSpacing=1;" vertex="1" parent="1">
+          <mxGeometry x="120" y="1005" width="400" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="d2-bi-1" value="&lt;b&gt;tenant.yaml + 4 行业预设&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size:10px;color:#33691e&quot;&gt;coffee · tea · restaurant · retail · 菜单/限流/feature flag 配置驱动&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#43a047;fontSize=11;align=center;" vertex="1" parent="1">
+          <mxGeometry x="120" y="1030" width="400" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="d2-bi-2" value="&lt;b&gt;/brand-init · 交互式问答&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size:10px;color:#33691e&quot;&gt;品类选择 → 30 秒生成 brand.yaml · 立即用 DemoAdapter 跑通&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#43a047;fontSize=11;align=center;" vertex="1" parent="1">
+          <mxGeometry x="120" y="1090" width="400" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="d2-bi-3" value="&lt;b&gt;/brand-onboard · 自动接入&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size:10px;color:#33691e&quot;&gt;OpenAPI / Postman / 文档 → adapter.py + tenant.yaml + 集成测试&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#43a047;fontSize=11;align=center;" vertex="1" parent="1">
+          <mxGeometry x="120" y="1150" width="400" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="d2-bi-4" value="&lt;b&gt;DemoAdapter 兜底&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size:10px;color:#33691e&quot;&gt;零配置启动 · 半成品 yaml 也能跑 · 增量替换 provider&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#43a047;fontSize=11;align=center;" vertex="1" parent="1">
+          <mxGeometry x="540" y="1030" width="350" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="d2-bi-5" value="&lt;b&gt;Contract Tests&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size:10px;color:#33691e&quot;&gt;每个 adapter 必过 · 5 天接入 · /tenant-smoke 12 beats&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#43a047;fontSize=11;align=center;" vertex="1" parent="1">
+          <mxGeometry x="540" y="1090" width="350" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="d2-bi-6" value="&lt;b&gt;5-day brand integration&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size:10px;color:#33691e&quot;&gt;Day 1 yaml · Day 2 MasterData · Day 3 POS · Day 4-5 测试&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#43a047;fontSize=11;align=center;" vertex="1" parent="1">
+          <mxGeometry x="540" y="1150" width="350" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="d2-divider" value="" style="endArrow=none;dashed=1;strokeColor=#a5d6a7;strokeWidth=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="910" y="1010" as="sourcePoint" />
+            <mxPoint x="910" y="1280" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="d2-si-lbl" value="② 系统集成 · System Integration" style="text;html=1;align=left;fontSize=12;fontStyle=1;fontColor=#1b5e20;letterSpacing=1;" vertex="1" parent="1">
+          <mxGeometry x="930" y="1005" width="400" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="d2-si-1" value="&lt;b&gt;5 Provider ABCs · 集成契约&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size:10px;color:#33691e&quot;&gt;MasterData (商品/门店/类目)&amp;nbsp;·&amp;nbsp;POS (算价/下单/库存)&amp;nbsp;·&amp;nbsp;CRM (会员/券/积分)&amp;nbsp;·&amp;nbsp;Payment (预支付/回调/退款)&amp;nbsp;·&amp;nbsp;IM (消息收发)&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#43a047;fontSize=11;align=center;" vertex="1" parent="1">
+          <mxGeometry x="930" y="1030" width="830" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="d2-si-2" value="&lt;b&gt;平台原语 · Audit Primitives&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size:10px;color:#33691e&quot;&gt;Confirmation Token (单次,5min TTL) · Idempotency Store · Rate Limiter (L0-L3) · PII Mask · Audit Log&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#43a047;fontSize=11;align=center;" vertex="1" parent="1">
+          <mxGeometry x="930" y="1090" width="830" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="d2-si-3" value="&lt;b&gt;MCP Server · 22 个标准工具&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size:10px;color:#33691e&quot;&gt;stdio (Claude Desktop) + Streamable HTTP (生产) · @audited_tool 装饰器统一限流/审计&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#43a047;fontSize=11;align=center;" vertex="1" parent="1">
+          <mxGeometry x="930" y="1150" width="410" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="d2-si-4" value="&lt;b&gt;ERP Provider&lt;/b&gt;&amp;nbsp;&lt;span style=&quot;color:#888;font-size:9px&quot;&gt;v2 计划&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size:10px;color:#33691e&quot;&gt;进销存 · 财务 · 供应链 · 凭证&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#bdbdbd;dashed=1;fontSize=11;align=center;" vertex="1" parent="1">
+          <mxGeometry x="1350" y="1150" width="410" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="d2-si-5" value="&lt;b&gt;TenantRegistry · 多租户路由&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size:10px;color:#33691e&quot;&gt;X-Tenant-Id 头 · per-tenant provider 实例 · 一进程一品牌 (stdio) / 多品牌 (HTTP)&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#43a047;fontSize=11;align=center;" vertex="1" parent="1">
+          <mxGeometry x="930" y="1210" width="830" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="d2-h-bs" value="BRAND 内部系统 · Brand Internal Systems" style="text;html=1;align=left;fontSize=11;fontStyle=1;fontColor=#737373;letterSpacing=4;" vertex="1" parent="1">
+          <mxGeometry x="100" y="1330" width="500" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="d2-bs-pos" value="&lt;b&gt;POS&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size:10px;color:#bf360c&quot;&gt;Square · Toast · 美团 · 有赞&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff3e0;strokeColor=#ef6c00;fontSize=12;align=center;" vertex="1" parent="1">
+          <mxGeometry x="100" y="1358" width="270" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="d2-bs-erp" value="&lt;b&gt;ERP&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size:10px;color:#bf360c&quot;&gt;SAP · Oracle · 用友 · 金蝶&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff3e0;strokeColor=#ef6c00;fontSize=12;align=center;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="390" y="1358" width="270" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="d2-bs-md" value="&lt;b&gt;Master Data&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size:10px;color:#bf360c&quot;&gt;商品 · 门店 · PIM · 价格&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff3e0;strokeColor=#ef6c00;fontSize=12;align=center;" vertex="1" parent="1">
+          <mxGeometry x="680" y="1358" width="270" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="d2-bs-crm" value="&lt;b&gt;CRM / Loyalty&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size:10px;color:#bf360c&quot;&gt;Salesforce · 自研会员体系&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff3e0;strokeColor=#ef6c00;fontSize=12;align=center;" vertex="1" parent="1">
+          <mxGeometry x="970" y="1358" width="270" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="d2-bs-pay" value="&lt;b&gt;Payment&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size:10px;color:#bf360c&quot;&gt;Stripe · Alipay · WeChat Pay · 银联&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff3e0;strokeColor=#ef6c00;fontSize=12;align=center;" vertex="1" parent="1">
+          <mxGeometry x="1260" y="1358" width="250" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="d2-bs-im" value="&lt;b&gt;IM 渠道&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size:10px;color:#bf360c&quot;&gt;WhatsApp · 企业微信 · 钉钉&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff3e0;strokeColor=#ef6c00;fontSize=12;align=center;" vertex="1" parent="1">
+          <mxGeometry x="1530" y="1358" width="250" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="d2-story" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fafafa;strokeColor=#bdbdbd;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="100" y="1442" width="1680" height="58" as="geometry" />
+        </mxCell>
+        <mxCell id="d2-story-1" value="&lt;b style=&quot;color:#4a148c&quot;&gt;上半身 (lumi-agent)&lt;/b&gt; 把 AI 能力做厚 — 多通道入口、对话编排、智能识别、Agent 协同、AgentOps 治理。&lt;b&gt; SaaS 收入&lt;/b&gt; 来自这层。" style="text;html=1;align=left;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="115" y="1450" width="1650" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="d2-story-2" value="&lt;b style=&quot;color:#1b5e20&quot;&gt;下半身 (brand-bridge)&lt;/b&gt; 把品牌接入做薄 — 一份 yaml + 5 个 Provider 适配器,5 天对接 POS/Master Data/CRM/Payment/IM,平台原语零重复造轮子。&lt;b&gt; OSS 是护城河&lt;/b&gt;。" style="text;html=1;align=left;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="115" y="1472" width="1650" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="d2-e1" style="endArrow=classic;html=1;rounded=0;strokeColor=#9e9e9e;strokeWidth=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="d2-ah-1" target="d2-mcp">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="d2-e2" style="endArrow=classic;html=1;rounded=0;strokeColor=#f57f17;strokeWidth=2;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.1;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="d2-ah-2" target="d2-gw">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="d2-e3" style="endArrow=classic;html=1;rounded=0;strokeColor=#f57f17;strokeWidth=2;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.4;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="d2-ah-3" target="d2-gw">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="d2-e4" style="endArrow=classic;html=1;rounded=0;strokeColor=#f57f17;strokeWidth=2;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.7;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="d2-ah-4" target="d2-gw">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="d2-e5" style="endArrow=classic;html=1;rounded=0;strokeColor=#f57f17;strokeWidth=2;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.9;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="d2-ah-5" target="d2-gw">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="d2-e6" style="endArrow=classic;html=1;rounded=0;strokeColor=#f57f17;strokeWidth=2;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="d2-gw" target="d2-la-box">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="d2-e7" style="endArrow=classic;html=1;rounded=0;strokeColor=#558b2f;strokeWidth=3;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="d2-la-box" target="d2-bb-box">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="d2-e8" style="endArrow=classic;html=1;rounded=0;strokeColor=#2e7d32;strokeWidth=1.5;exitX=0.1;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="d2-bb-box" target="d2-bs-pos">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="d2-e9" style="endArrow=classic;html=1;rounded=0;strokeColor=#2e7d32;strokeWidth=1.5;dashed=1;exitX=0.27;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="d2-bb-box" target="d2-bs-erp">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="d2-e10" style="endArrow=classic;html=1;rounded=0;strokeColor=#2e7d32;strokeWidth=1.5;exitX=0.45;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="d2-bb-box" target="d2-bs-md">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="d2-e11" style="endArrow=classic;html=1;rounded=0;strokeColor=#2e7d32;strokeWidth=1.5;exitX=0.62;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="d2-bb-box" target="d2-bs-crm">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="d2-e12" style="endArrow=classic;html=1;rounded=0;strokeColor=#2e7d32;strokeWidth=1.5;exitX=0.8;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="d2-bb-box" target="d2-bs-pay">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="d2-e13" style="endArrow=classic;html=1;rounded=0;strokeColor=#2e7d32;strokeWidth=1.5;exitX=0.95;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="d2-bb-box" target="d2-bs-im">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
 </mxfile>
