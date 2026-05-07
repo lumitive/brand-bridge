@@ -26,6 +26,11 @@
         "brand-bridge", "serve", "--tenant", "my_brand"
       ],
       "_note": "Run from a checkout without installing — useful for development."
+    },
+
+    "my-brand-via-http": {
+      "url": "https://mcp.mybrand.com/mcp",
+      "_note": "Streamable HTTP variant. Run `brand-bridge serve --tenant my_brand --http --port 8000` on the server, expose behind your reverse proxy. One process per tenant — fan out at the proxy layer (subdomain or path)."
     }
   }
 }

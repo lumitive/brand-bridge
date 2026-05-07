@@ -75,11 +75,26 @@ def tenant_validate(tenant_id: str) -> None:
 @main.command("serve")
 @click.option("--tenant", "tenant_id", required=True,
               help="Tenant id (subdir name under tenants/).")
-def serve(tenant_id: str) -> None:
-    """Start the stdio MCP server for a tenant. AI hosts (Claude Desktop,
-    ChatGPT) launch this as a subprocess and speak MCP over stdin/stdout."""
-    from brand_bridge.mcp.server import run_stdio
-    run_stdio(tenant_id)
+@click.option("--http", "use_http", is_flag=True, default=False,
+              help="Serve over Streamable HTTP instead of stdio.")
+@click.option("--host", default="127.0.0.1", show_default=True,
+              help="HTTP bind host (only with --http).")
+@click.option("--port", default=8000, type=int, show_default=True,
+              help="HTTP bind port (only with --http).")
+def serve(tenant_id: str, use_http: bool, host: str, port: int) -> None:
+    """Start the MCP server for a tenant.
+
+    Default is stdio (Claude Desktop / ChatGPT launch this as a subprocess
+    and speak MCP over stdin/stdout). With --http the Streamable HTTP
+    transport binds on host:port and exposes /mcp for remote AI hosts.
+    """
+    if use_http:
+        from brand_bridge.mcp.http_server import run_http
+        click.echo(f"[brand-bridge] HTTP MCP for {tenant_id} on http://{host}:{port}/mcp")
+        run_http(tenant_id, host=host, port=port)
+    else:
+        from brand_bridge.mcp.server import run_stdio
+        run_stdio(tenant_id)
 
 
 if __name__ == "__main__":

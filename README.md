@@ -81,7 +81,8 @@ It reads the docs, infers field mappings, generates `adapter.py` + `tenant.yaml`
 - [x] M0 — Repo scaffold, 5 Provider ABCs, Pydantic types, demo adapter, contract tests
 - [x] M1 — Audit primitives (confirmation tokens, idempotency, rate limit, PII), `@audited_tool`, `ToolContext`
 - [x] M2a — Stdio MCP server with 22 tools across discovery / account / order / loyalty / address
-- [ ] M2b — Streamable HTTP MCP server, JWT scope, persistent audit log
+- [x] M2b — Streamable HTTP MCP server (`serve --http`), uvicorn-backed
+- [ ] M2c — JWT scope, persistent audit log (SQLite), in-process multi-tenancy
 - [ ] M3 — `tenant init/onboard/smoke` CLI + Claude Code skills + industry presets
 - [ ] M4 — Reference adapters (Square POS, Stripe, Twilio WhatsApp)
 - [ ] M5 — Public release, GitHub Pages, PyPI

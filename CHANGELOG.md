@@ -6,11 +6,21 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and 
 
 ## [Unreleased]
 
+### Added (M2b — Streamable HTTP server)
+- `mcp/http_server.py` — `create_http_app(tenant_id)` for embedding under an existing ASGI app, `run_http(tenant_id, host, port)` for standalone (uvicorn-backed).
+- CLI: `brand-bridge serve --http --tenant <id> [--port N]` flag toggles HTTP transport instead of stdio.
+- `tests/contract/test_http_server.py` — boots uvicorn on a free port, asserts `/mcp` returns <500. Disables proxy env so localhost tests don't try to route through SOCKS.
+- `examples/claude_desktop.json` includes an HTTP profile.
+
 ### Added (M2a — stdio MCP server)
 - `mcp/server.py` — `create_server(tenant_id) -> FastMCP` factory registering 22 tools across discovery / account / order flow / loyalty / address.
 - `brand-bridge serve --tenant <id>` CLI subcommand for the stdio MCP server.
 - `core/audit.py::audited` async context manager — variant of `@audited_tool` for handlers that build `ToolContext` inline (the FastMCP signature pattern).
 - `tests/contract/test_mcp_server.py` — 5 in-process tests including full calculate_price → place_order round-trip and stale-token rejection.
+
+### Fixed (CI/CD hygiene)
+- 22 ruff lint failures (UP017 datetime.UTC alias, UP037 unquoted forward refs, UP042 StrEnum, F401 unused imports, I001 import order). Per-file ignore for N818 in `core/errors.py` since exception names like `RateLimitExceeded` / `FeatureDisabled` are cited in public docs.
+- Bumped GitHub Actions to silence Node.js 20 deprecation: `actions/checkout@v4 → v6`, `astral-sh/setup-uv@v3 → v7`.
 
 ### Added (M1 — audit primitives + docs)
 - `core/audit.py` — platform primitives: confirmation tokens (single-use, 5-min TTL), idempotency store with body-hash safety, sliding-window rate limiter, PII helpers, audit log ring buffer, `@audited_tool` decorator.

@@ -42,12 +42,27 @@ Six weeks to v1.0. One milestone per week unless a milestone is flagged risky.
 order flow round-trips through `mcp.call_tool` including confirmation-token
 single-use enforcement.
 
-## M2b — HTTP + auth (week 3 cont'd)
+## M2b — Streamable HTTP server (week 3 cont'd) ✓
 
-- `mcp/http_server.py` — Streamable HTTP (`X-Tenant-Id` routing)
-- `auth/agent_identity.py` — JWT scope (port from lumi-agent)
-- Persistent audit log (SQLite backend behind `AuditLog` interface)
+- ✓ `mcp/http_server.py` — `create_http_app(tenant_id)` for embedding,
+  `run_http(tenant_id, host, port)` for standalone (uvicorn-backed)
+- ✓ CLI: `brand-bridge serve --http --tenant <id> [--port 8000]`
+- ✓ E2E smoke test boots uvicorn on a free port, hits /mcp, asserts <500
+- One process per tenant for v1 — multi-tenant-in-one-process deferred
+  until a customer needs it (Starlette `Mount` lifespan plumbing is fiddly,
+  see lumi-agent CLAUDE.md)
+
+**Exit criterion:** `brand-bridge serve --http --tenant _demo` listens on
+the chosen port; `/mcp` route mounted (no 5xx); tests cover both the
+embedding path and the standalone runner.
+
+## M2c — Auth + persistence (week 4)
+
+- `auth/agent_identity.py` — JWT scope verification (port from lumi-agent)
+- Persistent `AuditLog` (SQLite backend behind the existing interface)
 - `GET /api/audit?tenant=...` endpoint (operator scope)
+- Optional: in-process multi-tenant routing via `X-Tenant-Id` header
+  (Starlette parent app with explicit lifespan forwarding)
 
 ## M3 — Auto-onboarding (week 4)
 
