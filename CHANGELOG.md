@@ -6,7 +6,13 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and 
 
 ## [Unreleased]
 
-### Added
+### Added (M2a — stdio MCP server)
+- `mcp/server.py` — `create_server(tenant_id) -> FastMCP` factory registering 22 tools across discovery / account / order flow / loyalty / address.
+- `brand-bridge serve --tenant <id>` CLI subcommand for the stdio MCP server.
+- `core/audit.py::audited` async context manager — variant of `@audited_tool` for handlers that build `ToolContext` inline (the FastMCP signature pattern).
+- `tests/contract/test_mcp_server.py` — 5 in-process tests including full calculate_price → place_order round-trip and stale-token rejection.
+
+### Added (M1 — audit primitives + docs)
 - `core/audit.py` — platform primitives: confirmation tokens (single-use, 5-min TTL), idempotency store with body-hash safety, sliding-window rate limiter, PII helpers, audit log ring buffer, `@audited_tool` decorator.
 - `core/context.py` — `ToolContext` carrying tenant identity, user, config, and registry through tool handlers.
 - `tests/contract/test_audit.py` — 13 tests covering tokens, idempotency, rate limit, PII, and the decorator.

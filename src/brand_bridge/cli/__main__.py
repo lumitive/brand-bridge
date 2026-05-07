@@ -1,14 +1,15 @@
 """brand-bridge CLI entry point.
 
-Subcommands (M0):
+Subcommands:
     tenant ls                        — list configured tenants
     tenant show <tenant_id>          — print resolved config
     tenant validate <tenant_id>      — load + instantiate all providers
+    serve --tenant <id>              — start stdio MCP server (M2)
 
-Subcommands planned for M1+:
+Planned for M3+:
     tenant init <id> --preset coffee — scaffold new tenant.yaml
     tenant onboard <id> <api_docs>   — invoke /brand-onboard skill
-    serve --tenant <id> [--http]     — start MCP server
+    serve --tenant <id> --http       — Streamable HTTP MCP server
 """
 
 from __future__ import annotations
@@ -70,6 +71,16 @@ def tenant_validate(tenant_id: str) -> None:
     click.echo(f"  pos         : {type(registry.pos).__name__}")
     click.echo(f"  crm         : {type(registry.crm).__name__}")
     click.echo(f"  payment     : {type(registry.payment).__name__}")
+
+
+@main.command("serve")
+@click.option("--tenant", "tenant_id", required=True,
+              help="Tenant id (subdir name under tenants/).")
+def serve(tenant_id: str) -> None:
+    """Start the stdio MCP server for a tenant. AI hosts (Claude Desktop,
+    ChatGPT) launch this as a subprocess and speak MCP over stdin/stdout."""
+    from brand_bridge.mcp.server import run_stdio
+    run_stdio(tenant_id)
 
 
 if __name__ == "__main__":

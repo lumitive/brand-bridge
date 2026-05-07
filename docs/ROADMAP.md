@@ -27,13 +27,27 @@ Six weeks to v1.0. One milestone per week unless a milestone is flagged risky.
 
 **Exit criterion:** `place_order` cannot be invoked without a fresh confirmation token; duplicate idempotency keys with same body return cached order; rate limiter throttles correctly.
 
-## M2 — MCP server (week 3)
+## M2a — Stdio MCP server (week 3) ✓
 
-- `mcp/server.py` — stdio server, 24 tools across 5 namespaces
+- ✓ `mcp/server.py` — `create_server(tenant_id) -> FastMCP` factory
+- ✓ 22 tools registered across discovery (9), account (6), order (4),
+  loyalty (2), address (1) — every body wrapped with `audited(...)` context
+  manager so rate limit + audit are uniform
+- ✓ `brand-bridge serve --tenant <id>` CLI subcommand (stdio)
+- ✓ 5 in-process MCP tests including full quote→order flow + stale-token
+  rejection through the wire serialization
+- ✓ `examples/claude_desktop.json` connection profiles already in M1
+
+**Exit criterion:** stdio server starts cleanly, all 22 tools are listed, full
+order flow round-trips through `mcp.call_tool` including confirmation-token
+single-use enforcement.
+
+## M2b — HTTP + auth (week 3 cont'd)
+
 - `mcp/http_server.py` — Streamable HTTP (`X-Tenant-Id` routing)
 - `auth/agent_identity.py` — JWT scope (port from lumi-agent)
-- `examples/claude_desktop.json` — connect-out-of-the-box config
-- E2E test: stdio server + MCP client → tool round-trip
+- Persistent audit log (SQLite backend behind `AuditLog` interface)
+- `GET /api/audit?tenant=...` endpoint (operator scope)
 
 ## M3 — Auto-onboarding (week 4)
 

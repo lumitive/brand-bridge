@@ -98,4 +98,4 @@ The canonical reference for how to use these is `adapters/demo/pos.py` — its `
 
 ## When in doubt
 
-Read `docs/ARCHITECTURE.md` then `src/brand_bridge/core/audit.py` then `src/brand_bridge/adapters/demo/pos.py`. Those three files contain the entire mental model.
+Read `docs/ARCHITECTURE.md`, then `src/brand_bridge/core/audit.py`, then `src/brand_bridge/adapters/demo/pos.py`, then `src/brand_bridge/mcp/server.py`. Those four files contain the entire mental model — providers (contract), audit (platform plumbing), demo POS (canonical adapter pattern), MCP server (how tools get exposed to AI hosts).

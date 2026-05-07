@@ -35,15 +35,19 @@ import re
 import secrets
 import time
 from collections import deque
+from contextlib import asynccontextmanager
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
-from typing import Any, Awaitable, Callable
+from typing import TYPE_CHECKING, Any, AsyncIterator, Awaitable, Callable
 
 from brand_bridge.core.errors import (
     ConfirmationTokenError,
     IdempotencyError,
     RateLimitExceeded,
 )
+
+if TYPE_CHECKING:
+    from brand_bridge.core.context import ToolContext
 
 # ─── Confirmation tokens ──────────────────────────────────────────────────
 
@@ -207,6 +211,44 @@ DEFAULT_AUDIT_LOG = AuditLog()
 
 
 # ─── @audited_tool decorator ─────────────────────────────────────────────
+
+@asynccontextmanager
+async def audited(ctx: "ToolContext", *, name: str,
+                  rate_class: str = "L1") -> AsyncIterator["ToolContext"]:
+    """Context-manager variant of `@audited_tool` for callers that build the
+    ToolContext inline (e.g. MCP tool handlers exposed via FastMCP, where the
+    user-facing signature can't carry `ctx` as the first arg).
+
+    Usage::
+
+        async with audited(ctx, name="list_stores", rate_class="L0"):
+            return await ctx.registry.master_data.list_stores(...)
+    """
+    started = time.time()
+    error = ""
+    success = False
+    try:
+        rate_spec = ctx.config.rate_limits.get(rate_class)
+        if rate_spec is not None:
+            DEFAULT_RATE_LIMITER.check(
+                tenant_id=ctx.tenant_id, scope=name, key=ctx.user_id,
+                max_calls=rate_spec.max_calls,
+                window_seconds=rate_spec.window_seconds,
+            )
+        yield ctx
+        success = True
+    except Exception as e:  # noqa: BLE001
+        error = f"{type(e).__name__}: {e}"
+        raise
+    finally:
+        DEFAULT_AUDIT_LOG.append(AuditEntry(
+            tool=name, tenant_id=ctx.tenant_id, user_id=ctx.user_id,
+            success=success,
+            duration_ms=int((time.time() - started) * 1000),
+            timestamp=datetime.now(timezone.utc).isoformat(),
+            error=error,
+        ))
+
 
 def audited_tool(*, name: str, rate_class: str = "L1"):
     """Wrap an async tool handler with rate limit + audit log + error capture.
