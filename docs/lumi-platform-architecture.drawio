@@ -1,0 +1,173 @@
+<mxfile host="app.diagrams.net" modified="2026-05-07T18:30:00.000Z" agent="brand-bridge" version="24.0.0">
+  <diagram name="Lumi Platform — MVP" id="lumi-mvp-architecture">
+    <mxGraphModel dx="1600" dy="1000" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1040" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <mxCell id="title" value="Lumi Platform — MVP Architecture" style="text;html=1;align=center;fontSize=26;fontStyle=1;fontColor=#1a1a1a;" vertex="1" parent="1">
+          <mxGeometry x="300" y="24" width="1000" height="38" as="geometry" />
+        </mxCell>
+        <mxCell id="subtitle" value="Standard MCP between AI agents and brand commerce back-offices" style="text;html=1;align=center;fontSize=14;fontColor=#737373;" vertex="1" parent="1">
+          <mxGeometry x="300" y="62" width="1000" height="22" as="geometry" />
+        </mxCell>
+
+        <mxCell id="hdr-hosts" value="AI HOSTS" style="text;html=1;align=left;fontSize=11;fontStyle=1;fontColor=#737373;letterSpacing=4;" vertex="1" parent="1">
+          <mxGeometry x="100" y="120" width="200" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="host-claude" value="Claude Desktop" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#9e9e9e;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="100" y="148" width="290" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="host-gpt" value="ChatGPT / GPTs" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#9e9e9e;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="420" y="148" width="290" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="host-hex" value="Hex Agents" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#9e9e9e;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="740" y="148" width="290" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="host-other" value="OpenClaw / Custom Agents" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#9e9e9e;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1060" y="148" width="290" height="56" as="geometry" />
+        </mxCell>
+
+        <mxCell id="mcp-pill" value="MCP" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1976d2;strokeColor=#0d47a1;fontSize=11;fontColor=#ffffff;fontStyle=1;letterSpacing=2;" vertex="1" parent="1">
+          <mxGeometry x="700" y="222" width="50" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="hdr-disc" value="DISCOVERY" style="text;html=1;align=left;fontSize=11;fontStyle=1;fontColor=#737373;letterSpacing=4;" vertex="1" parent="1">
+          <mxGeometry x="100" y="258" width="200" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="lumi-mcp" value="&lt;b style=&quot;font-size:18px;color:#0d47a1&quot;&gt;lumi-mcp&lt;/b&gt;&amp;nbsp;&amp;nbsp;&lt;span style=&quot;color:#1565c0;font-size:13px&quot;&gt;public agent discovery&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;color:#42a5f5;font-size:12px&quot;&gt;GitHub Pages&amp;nbsp;·&amp;nbsp;tools.json&amp;nbsp;·&amp;nbsp;llms.txt&amp;nbsp;·&amp;nbsp;mcp.json (paste-ready client config)&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e3f2fd;strokeColor=#1976d2;fontSize=14;align=center;verticalAlign=middle;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="100" y="285" width="1250" height="68" as="geometry" />
+        </mxCell>
+
+        <mxCell id="hdr-plat" value="PLATFORM" style="text;html=1;align=left;fontSize=11;fontStyle=1;fontColor=#737373;letterSpacing=4;" vertex="1" parent="1">
+          <mxGeometry x="100" y="396" width="200" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="bb-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8f5e9;strokeColor=#2e7d32;fontSize=14;verticalAlign=top;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="100" y="424" width="610" height="298" as="geometry" />
+        </mxCell>
+        <mxCell id="bb-tag" value="OSS · the moat" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2e7d32;strokeColor=#1b5e20;fontSize=11;fontColor=#ffffff;fontStyle=1;letterSpacing=1;" vertex="1" parent="1">
+          <mxGeometry x="555" y="438" width="140" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="bb-title" value="brand-bridge" style="text;html=1;align=left;fontSize=20;fontStyle=1;fontColor=#1b5e20;" vertex="1" parent="1">
+          <mxGeometry x="120" y="436" width="320" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="bb-sub" value="brand integration framework — multi-tenant" style="text;html=1;align=left;fontSize=13;fontColor=#388e3c;" vertex="1" parent="1">
+          <mxGeometry x="120" y="464" width="450" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="bb-bullets" value="&lt;div style=&quot;font-size:13px;line-height:1.9;color:#1b5e20&quot;&gt;&lt;b&gt;5 Provider ABCs&lt;/b&gt;&amp;nbsp;&amp;nbsp;MasterData · POS · CRM · Payment · IM&lt;br&gt;&lt;b&gt;MCP Server&lt;/b&gt;&amp;nbsp;&amp;nbsp;stdio + Streamable HTTP · 22 tools&lt;br&gt;&lt;b&gt;Audit primitives&lt;/b&gt;&amp;nbsp;&amp;nbsp;confirmation token · idempotency · rate limit · PII mask&lt;br&gt;&lt;b&gt;Auto-onboard&lt;/b&gt;&amp;nbsp;&amp;nbsp;OpenAPI / docs → adapter via Claude Code skill&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=top;fontSize=13;fontColor=#1b5e20;" vertex="1" parent="1">
+          <mxGeometry x="120" y="500" width="570" height="160" as="geometry" />
+        </mxCell>
+
+        <mxCell id="bb-foot" value="&lt;span style=&quot;font-style:italic;color:#33691e&quot;&gt;github.com/lumitive/brand-bridge&amp;nbsp;·&amp;nbsp;Apache 2.0&amp;nbsp;·&amp;nbsp;5-day brand integration&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size:11px;color:#558b2f&quot;&gt;status: M2b complete · 27 tests green · stdio + HTTP servers shipped&lt;/span&gt;" style="text;html=1;align=center;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="120" y="678" width="570" height="36" as="geometry" />
+        </mxCell>
+
+        <mxCell id="la-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f3e5f5;strokeColor=#6a1b9a;fontSize=14;verticalAlign=top;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="740" y="424" width="610" height="298" as="geometry" />
+        </mxCell>
+        <mxCell id="la-tag" value="SaaS · the revenue" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#6a1b9a;strokeColor=#4a148c;fontSize=11;fontColor=#ffffff;fontStyle=1;letterSpacing=1;" vertex="1" parent="1">
+          <mxGeometry x="1185" y="438" width="150" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="la-title" value="lumi-agent" style="text;html=1;align=left;fontSize=20;fontStyle=1;fontColor=#4a148c;" vertex="1" parent="1">
+          <mxGeometry x="760" y="436" width="320" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="la-sub" value="hosted AI orchestration — premium experience" style="text;html=1;align=left;fontSize=13;fontColor=#7b1fa2;" vertex="1" parent="1">
+          <mxGeometry x="760" y="464" width="450" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="la-bullets" value="&lt;div style=&quot;font-size:13px;line-height:1.9;color:#4a148c&quot;&gt;&lt;b&gt;LangGraph workflow&lt;/b&gt;&amp;nbsp;&amp;nbsp;intent · slot · checkpointed conversation state&lt;br&gt;&lt;b&gt;5 channels&lt;/b&gt;&amp;nbsp;&amp;nbsp;WhatsApp · H5 · Voice · MCP host · WeChat&lt;br&gt;&lt;b&gt;Ops Copilot&lt;/b&gt;&amp;nbsp;&amp;nbsp;KPI · anomaly detect · browser-use restock&lt;br&gt;&lt;b&gt;Agentic Payment&lt;/b&gt;&amp;nbsp;&amp;nbsp;Mastercard A2A · scoped JWT · passkey&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=top;fontSize=13;fontColor=#4a148c;" vertex="1" parent="1">
+          <mxGeometry x="760" y="500" width="570" height="160" as="geometry" />
+        </mxCell>
+
+        <mxCell id="la-foot" value="&lt;span style=&quot;font-style:italic;color:#4a148c&quot;&gt;FastAPI + LangGraph + ChromaDB&amp;nbsp;·&amp;nbsp;18 tools&amp;nbsp;·&amp;nbsp;single-tenant demo&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size:11px;color:#7b1fa2&quot;&gt;status: demo running &amp;nbsp;·&amp;nbsp; multi-tenant migration onto brand-bridge planned&lt;/span&gt;" style="text;html=1;align=center;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="760" y="678" width="570" height="36" as="geometry" />
+        </mxCell>
+
+        <mxCell id="hdr-bo" value="BRAND BACK-OFFICE" style="text;html=1;align=left;fontSize=11;fontStyle=1;fontColor=#737373;letterSpacing=4;" vertex="1" parent="1">
+          <mxGeometry x="100" y="760" width="300" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="bo-pos" value="&lt;b&gt;POS&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size:11px;color:#bf360c&quot;&gt;Square · Toast · 美团 · 有赞&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff3e0;strokeColor=#ef6c00;fontSize=13;align=center;" vertex="1" parent="1">
+          <mxGeometry x="100" y="788" width="240" height="62" as="geometry" />
+        </mxCell>
+        <mxCell id="bo-md" value="&lt;b&gt;Master Data&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size:11px;color:#bf360c&quot;&gt;catalog · inventory&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff3e0;strokeColor=#ef6c00;fontSize=13;align=center;" vertex="1" parent="1">
+          <mxGeometry x="360" y="788" width="240" height="62" as="geometry" />
+        </mxCell>
+        <mxCell id="bo-crm" value="&lt;b&gt;CRM / Loyalty&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size:11px;color:#bf360c&quot;&gt;Salesforce · own loyalty engine&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff3e0;strokeColor=#ef6c00;fontSize=13;align=center;" vertex="1" parent="1">
+          <mxGeometry x="620" y="788" width="240" height="62" as="geometry" />
+        </mxCell>
+        <mxCell id="bo-pay" value="&lt;b&gt;Payment&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size:11px;color:#bf360c&quot;&gt;Stripe · Alipay · WeChat Pay&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff3e0;strokeColor=#ef6c00;fontSize=13;align=center;" vertex="1" parent="1">
+          <mxGeometry x="880" y="788" width="240" height="62" as="geometry" />
+        </mxCell>
+        <mxCell id="bo-im" value="&lt;b&gt;IM&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size:11px;color:#bf360c&quot;&gt;WhatsApp · WeChat · SMS · Lark&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff3e0;strokeColor=#ef6c00;fontSize=13;align=center;" vertex="1" parent="1">
+          <mxGeometry x="1140" y="788" width="240" height="62" as="geometry" />
+        </mxCell>
+
+        <mxCell id="story-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fafafa;strokeColor=#bdbdbd;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="100" y="892" width="1280" height="118" as="geometry" />
+        </mxCell>
+        <mxCell id="story-hdr" value="THE STORY" style="text;html=1;align=left;fontSize=11;fontStyle=1;fontColor=#737373;letterSpacing=4;" vertex="1" parent="1">
+          <mxGeometry x="118" y="900" width="200" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="story-1" value="&lt;b style=&quot;color:#1b5e20&quot;&gt;①&amp;nbsp;&amp;nbsp;brand-bridge (open source)&lt;/b&gt; is the standard plug — every brand integrates once, every AI host can talk to them. Adoption = moat." style="text;html=1;align=left;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="118" y="926" width="1240" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="story-2" value="&lt;b style=&quot;color:#4a148c&quot;&gt;②&amp;nbsp;&amp;nbsp;lumi-agent (hosted SaaS)&lt;/b&gt; is the AI brain on top — for brands that want the experience without managing their own AI stack. Revenue lives here." style="text;html=1;align=left;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="118" y="950" width="1240" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="story-3" value="&lt;b style=&quot;color:#0d47a1&quot;&gt;③&amp;nbsp;&amp;nbsp;lumi-mcp (public site)&lt;/b&gt; is how AI agents and integrators discover us — single source of truth for tool catalog, schemas, and onboarding." style="text;html=1;align=left;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="118" y="974" width="1240" height="22" as="geometry" />
+        </mxCell>
+
+        <mxCell id="e1" style="endArrow=classic;html=1;rounded=0;strokeColor=#9e9e9e;strokeWidth=1.5;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.18;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="host-claude" target="lumi-mcp">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" style="endArrow=classic;html=1;rounded=0;strokeColor=#9e9e9e;strokeWidth=1.5;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.39;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="host-gpt" target="lumi-mcp">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" style="endArrow=classic;html=1;rounded=0;strokeColor=#9e9e9e;strokeWidth=1.5;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.6;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="host-hex" target="lumi-mcp">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" style="endArrow=classic;html=1;rounded=0;strokeColor=#9e9e9e;strokeWidth=1.5;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.82;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="host-other" target="lumi-mcp">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="e5" style="endArrow=classic;html=1;rounded=0;strokeColor=#1976d2;strokeWidth=2;exitX=0.3;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="lumi-mcp" target="bb-box">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" style="endArrow=classic;html=1;rounded=0;strokeColor=#1976d2;strokeWidth=2;exitX=0.7;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="lumi-mcp" target="la-box">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="e7" value="lumi-agent uses brand-bridge&#10;(M2c migration in progress)" style="endArrow=classic;startArrow=classic;html=1;rounded=0;dashed=1;fontSize=10;fontStyle=2;fontColor=#666666;strokeColor=#9e9e9e;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="la-box" target="bb-box">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="e8" style="endArrow=classic;html=1;rounded=0;strokeColor=#2e7d32;strokeWidth=1.5;exitX=0.15;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="bb-box" target="bo-pos">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e9" style="endArrow=classic;html=1;rounded=0;strokeColor=#2e7d32;strokeWidth=1.5;exitX=0.4;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="bb-box" target="bo-md">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e10" style="endArrow=classic;html=1;rounded=0;strokeColor=#2e7d32;strokeWidth=1.5;exitX=0.7;exitY=1;exitDx=0;exitDy=0;entryX=0.3;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="bb-box" target="bo-crm">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e11" style="endArrow=classic;html=1;rounded=0;strokeColor=#2e7d32;strokeWidth=1.5;exitX=0.95;exitY=1;exitDx=0;exitDy=0;entryX=0.3;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="bb-box" target="bo-pay">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="e12" style="endArrow=classic;html=1;rounded=0;strokeColor=#6a1b9a;strokeWidth=1.5;exitX=0.95;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="la-box" target="bo-im">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e13" style="endArrow=classic;html=1;rounded=0;strokeColor=#6a1b9a;strokeWidth=1.5;dashed=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="la-box" target="bo-pay">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -89,7 +89,8 @@ It reads the docs, infers field mappings, generates `adapter.py` + `tenant.yaml`
 
 See the docs:
 
-- [ARCHITECTURE](docs/ARCHITECTURE.md) — the why and the high-level design
+- [LUMI_PLATFORM](docs/LUMI_PLATFORM.md) — cross-repo MVP picture (brand-bridge + lumi-agent + lumi-mcp), with diagram
+- [ARCHITECTURE](docs/ARCHITECTURE.md) — brand-bridge internals: why and high-level design
 - [INTEGRATION_GUIDE](docs/INTEGRATION_GUIDE.md) — 5-day walkthrough for brand engineers
 - [PROVIDER_SPEC](docs/PROVIDER_SPEC.md) — every method, every return type
 - [SECURITY](docs/SECURITY.md) — threat model + L0–L3 risk classes
